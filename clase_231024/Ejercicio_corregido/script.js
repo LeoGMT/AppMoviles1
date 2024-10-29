@@ -1,24 +1,19 @@
-let arreglo = () => [];
-const tarea=document.getElementById('tarea');
-const button = document.createElement("button");
-const lista=document.getElementById('lista');
-const li = document.createElement("li");
+function tarea() {
+    let tarea = document.getElementById("input").value;
 
+    if (tarea !== '') {
+        let li = document.createElement("li");
+        li.textContent = tarea;
 
- /*let newTarea = (tarea) => {
-    return button.textContent="Eliminar ";
- }*/
+        let Eliminar = document.createElement("button");
+        Eliminar.textContent = "Eliminar";
+        Eliminar.onclick = function() {
+            li.remove();
+        };
 
- console.log(arreglo());
-
- //console.log(arreglo(tarea));
- 
- function limpiar() { 
-    document.getElementById('tarea').value ='';
- }
-
- function crear(){
-
-   arreglo.push(tarea);
-    return button.textContent="Eliminar ";
- }
+        li.appendChild(Eliminar);
+        document.getElementById("listaTareas").appendChild(li);
+        
+        document.getElementById("input").value = "";
+    }
+}
